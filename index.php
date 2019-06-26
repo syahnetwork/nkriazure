@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Submission Azure 2</title>
+    <title>Indonesia Satu</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
-<body style="margin: 0; overflow: hidden; background-image: url(bg.jpg); background-size: cover; background-color: #173f5f; color: white">
+<body style="margin: 0; overflow: hidden; background-image: url(indonesia.jpg); background-size: cover; background-color: #173f5f; color: white">
 <div id="uploadHeader">
-    <h2 style="padding: 0.5em 1em 0.5em 1em; margin: 0;">Azure Blob & Cognitive Service</h2>
+    <h2 style="padding: 0.5em 1em 0.5em 1em; margin: 0;">Dicoding Indonesia Azure</h2>
     <div id="uploadDialog" title="Upload Gambar">
         <form action="/azureBlob.php" id="upload" method="post" enctype="multipart/form-data"
               style="width: 100%; display: inline-flex; align-items: center; justify-content: space-between;">
