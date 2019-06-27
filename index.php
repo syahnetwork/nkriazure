@@ -8,24 +8,24 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-    $connectionString = "DefaultEndpointsProtocol=https;AccountName=muhsyawqistorage;AccountKey=YyJIxY8I5gni5MdBGi7pGm5axowEkHsUcF0pvPTHoI7wUIhMJScismXlVGrLnijYAaqGjH0HHOPOUq2vz9gDZw==;";
-    
-    $containerName = 'muhsyawqi';
-    
-    $blobClient = BlobRestProxy::createBlobService($connectionString);
-    
-    if (isset($_POST['submit'])) {
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=nkrisatustorageaccount;AccountKey=wE32qY65GFezmBViP9qd/TeDCNk2Q75lQJb/1LaEbB3ijD1bre3cDYcM+W7U9vgcWYEMsQ/QH++VYVFq6Q4zJg==;EndpointSuffix=core.windows.net";
 
-        $fileToUpload = strtolower(''.generateRandomString().$_FILES["fileToUpload"]["name"]);
+$containerName = 'https://nkrisatustorageaccount.blob.core.windows.net/nkrisatucontainer';
 
-        $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
-        
-        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-    }    
-    
-    $listBlobsOptions = new ListBlobsOptions();
-    $listBlobsOptions->setPrefix("");
-    $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+$blobClient = BlobRestProxy::createBlobService($connectionString);
+
+if (isset($_POST['submit'])) {
+
+    $fileToUpload = strtolower('' . generateRandomString() . $_FILES["fileToUpload"]["name"]);
+
+    $content = fopen($_FILES["fileToUpload"]["tmp_name"], "r");
+
+    $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+}
+
+$listBlobsOptions = new ListBlobsOptions();
+$listBlobsOptions->setPrefix("");
+$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 ?>
 
 <!DOCTYPE html>
@@ -37,47 +37,47 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
     <title>Document</title>
 </head>
 <body>
-    <div>
-        Upload File
-    </div>
-    <form action="index.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
-        <input type="submit" name="submit" value="Upload">
-    </form>
+<div>
+    Upload File
+</div>
+<form action="index.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required="">
+    <input type="submit" name="submit" value="Upload">
+</form>
 
-    <h4>Total Files : <?php echo sizeof($result->getBlobs())?></h4>
-		<table class='table table-hover'>
-			<thead>
-				<tr>
-					<th>File Name</th>
-					<th>File URL</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-				do {
-					foreach ($result->getBlobs() as $blob)
-					{
-						?>
-						<tr>
-                            <td>
-								<form action="analyze.php" method="post">
-									<input type="hidden" name="url" value="<?php echo $blob->getUrl()?>">
-									<input type="submit" name="submit" value="<?php echo $blob->getName() ?>" class="btn btn-primary">
-								</form>
-							</td>
-							<td>
-                                <a href="<?php echo $blob->getUrl() ?>">
-                                <?php echo $blob->getUrl() ?>
-                                </a>
-                            </td>
-						</tr>
-						<?php
-					}
-					$listBlobsOptions->setContinuationToken($result->getContinuationToken());
-				} while($result->getContinuationToken());
-				?>
-			</tbody>
-		</table>
+<h4>Total Files : <?php echo sizeof($result->getBlobs()) ?></h4>
+<table class='table table-hover'>
+    <thead>
+    <tr>
+        <th>File Name</th>
+        <th>File URL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    do {
+        foreach ($result->getBlobs() as $blob) {
+            ?>
+            <tr>
+                <td>
+                    <form action="analyze.php" method="post">
+                        <input type="hidden" name="url" value="<?php echo $blob->getUrl() ?>">
+                        <input type="submit" name="submit" value="<?php echo $blob->getName() ?>"
+                               class="btn btn-primary">
+                    </form>
+                </td>
+                <td>
+                    <a href="<?php echo $blob->getUrl() ?>">
+                        <?php echo $blob->getUrl() ?>
+                    </a>
+                </td>
+            </tr>
+            <?php
+        }
+        $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+    } while ($result->getContinuationToken());
+    ?>
+    </tbody>
+</table>
 </body>
 </html>
