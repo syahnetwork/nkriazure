@@ -44,7 +44,7 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 </head>
 
 <body>
-<div role="main" class="container">
+<main role="main" class="container">
     <div class="starter-template"><br><br><br>
         <h1>Upload Your Image</h1>
         <br>
@@ -90,7 +90,7 @@ $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
         ?>
         </tbody>
     </table>
-</div>
+</main>
 
 
 </body>
