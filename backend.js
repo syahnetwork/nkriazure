@@ -108,7 +108,7 @@ function uploadImage() {
     });
 }
 
-const container = "https://satustorageaccount.blob.core.windows.net/images/";
+const container = "https://nkrisatustorageaccount.blob.core.windows.net/nkrisatucontainer";
 var currentClass, imageView;
 
 function viewImage(blobIdx) {

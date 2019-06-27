@@ -8,7 +8,7 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
-<body style="margin: 0; overflow: hidden; background-image: url(indonesia.jpg); background-size: cover; background-color: #173f5f; color: white">
+<body style="margin: 0; overflow: hidden; background-image: url(indonesia.png); background-size: cover; background-color: #173f5f; color: white">
 <div id="uploadHeader">
     <h2 style="padding: 0.5em 1em 0.5em 1em; margin: 0;">Dicoding Indonesia Azure</h2>
     <div id="uploadDialog" title="Upload Gambar">
