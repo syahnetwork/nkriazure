@@ -10,7 +10,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=nkrisatustorageaccount;AccountKey=wE32qY65GFezmBViP9qd/TeDCNk2Q75lQJb/1LaEbB3ijD1bre3cDYcM+W7U9vgcWYEMsQ/QH++VYVFq6Q4zJg==;EndpointSuffix=core.windows.net";
 
-$containerName = 'https://nkrisatustorageaccount.blob.core.windows.net/nkrisatucontainer';
+$containerName = 'nkrisatustorageaccount';
 
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
