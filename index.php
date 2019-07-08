@@ -164,7 +164,7 @@ if (!empty($_GET['containerName'])) {
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
-            "https://satucomputervision.cognitiveservices.azure.com/";
+            "https://southeastasia.api.cognitive.microsoft.com/vision/v1.0/analyze";
 
         // Request parameters.
         var params = {
